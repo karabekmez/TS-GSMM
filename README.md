@@ -9,7 +9,7 @@ Dependencies:
 Inputs (for each time point):
 * model (Genome Scale Metabolic Model (GSMM) that includes Gene-Protein-Reaction (GPR) rules and its reaction bounds should be numeric)
 * gene_expression
-(gene_expression structure has two components: gene_expression.gene is a cell array containing GeneIDs in the same format as model.genes and gene_expression.value is a vector containing corresponding expression values. Gene expression values can be count data (RPKM/FPKM/TPM) or microarray data (without log2 normalization))
+(gene_expression structure has two components: gene_expression.gene is a cell array containing GeneIDs in the same format as model.genes and gene_expression.value is a vector containing corresponding expression values. Gene expression values can be count data (RPKM/FPKM/TPM) or microarray data (without log2 normalization). The model must have model.rules section. Loading models from .mat files may lead model.grRules section which carry the same information in a different format. To get model.rules properly it is recommended to load the models from .xml files)
 
 Implementation (for each time point):
 
