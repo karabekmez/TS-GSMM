@@ -27,8 +27,6 @@ Dependencies:
 Inputs (for each time point):
 * model (GSMM)
 * reaction_expression (obtained in Step 1)
-    
-Implementation:
-        
+       
 Outputs (for each time point): 
 * model_Ti (time point spesific GSMM for t(i) whose upper and lower bounds were manipulated via fE-Flux) 
