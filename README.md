@@ -45,4 +45,20 @@ Implementation
         [modelSampling_Ti, samples_Ti] = sampleCbModel(model_Ti,'samples_Ti','ACHR', 'modelSampling_Ti');
        
 Outputs (for each time point): 
+* samples_Ti (flux distribution of sampled 2000 points (default) for each reaction)
+
+STEP 4: Clustering flux distributions
+
+Dependencies:
+* COBRA Toolbox (https://github.com/opencobra/cobratoolbox)
+* Wasserstein distance (https://github.com/nklb/wasserstein-distance)
+
+Inputs (for each time point):
+* model_Ti (time point specific GSMM)
+
+Implementation 
+
+        [modelSampling_Ti, samples_Ti] = sampleCbModel(model_Ti,'samples_Ti','ACHR', 'modelSampling_Ti');
+       
+Outputs (for each time point): 
 * samples_Ti (flux distribution of sampled 2000 points (default) for each reaction) 
