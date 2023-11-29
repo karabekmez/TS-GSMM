@@ -53,12 +53,14 @@ Dependencies:
 * COBRA Toolbox (https://github.com/opencobra/cobratoolbox)
 * Wasserstein distance (https://github.com/nklb/wasserstein-distance)
 
-Inputs (for each time point):
-* model_Ti (time point specific GSMM)
+Inputs:
+* samples_Ti (time point specific samplings of the GSMMs)
 
 Implementation 
 
-        [modelSampling_Ti, samples_Ti] = sampleCbModel(model_Ti,'samples_Ti','ACHR', 'modelSampling_Ti');
+run createWTSD (creates within time series dissimilarity matrices to cluster flux profiles)
+
+        [idkm]=kmedoids(WTSDD,k)
        
-Outputs (for each time point): 
-* samples_Ti (flux distribution of sampled 2000 points (default) for each reaction) 
+Outputs: 
+* idkm (index of cluster for each reaction)
