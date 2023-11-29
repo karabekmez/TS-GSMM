@@ -43,10 +43,12 @@ Inputs (for each time point):
 Implementation 
 
         [modelSampling_Ti, samples_Ti] = sampleCbModel(model_Ti,'samples_Ti','ACHR', 'modelSampling_Ti');
-       
-Outputs (for each time point): 
-* samples_Ti (flux distribution of sampled 2000 points (default) for each reaction)
 
+* merge all samples_Ti's
+
+Output: 
+* SEF_N (3D array (reactions, samples, time points))
+  
 STEP 4: Clustering flux distributions
 
 Dependencies:
@@ -57,14 +59,14 @@ Inputs:
 * samples_Ti (time point specific samplings of the GSMMs)
 
 Implementation 
-
-run wasdis (creates between time series dissimilarity matrices to cluster flux distribution levels)
-
-run createWTSD (creates within time series dissimilarity matrices to cluster flux profiles)
-
-        [ind_ts_level]=kmedoids(DD,m)
-        [ind_ts_profile]=kmedoids(WTSDD,k)
-       
+* run wasdis (creates between time series dissimilarity matrices to cluster flux distribution levels)
+* run createWTSD (creates within time series dissimilarity matrices to cluster flux profiles)
+* Calinski-Harabasz clustering evaluation criterion (CH index) and/or silhouette scores can be used to determine number of clusters (m or k)
+        evalclusters(DD);
+        evalclusters(WTSDD);
+        [ind_ts_level]=kmedoids(DD,m);
+        [ind_ts_profile]=kmedoids(WTSDD,k);
+        
 Outputs: 
 * ind_ts_level (index of cluster for each reaction - clustering ts level)
 * ind_ts_profile (index of cluster for each reaction - clustering ts trend)
