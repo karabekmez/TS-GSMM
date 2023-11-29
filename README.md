@@ -62,6 +62,7 @@ Implementation
 * run wasdis (creates between time series dissimilarity matrices to cluster flux distribution levels)
 * run createWTSD (creates within time series dissimilarity matrices to cluster flux profiles)
 * Calinski-Harabasz clustering evaluation criterion (CH index) and/or silhouette scores can be used to determine number of clusters (m or k)
+  
         evalclusters(DD);
         evalclusters(WTSDD);
         [ind_ts_level]=kmedoids(DD,m);
