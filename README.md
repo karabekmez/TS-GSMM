@@ -58,9 +58,13 @@ Inputs:
 
 Implementation 
 
+run wasdis (creates between time series dissimilarity matrices to cluster flux distribution levels)
+
 run createWTSD (creates within time series dissimilarity matrices to cluster flux profiles)
 
-        [idkm]=kmedoids(WTSDD,k)
+        [ind_ts_level]=kmedoids(DD,m)
+        [ind_ts_profile]=kmedoids(WTSDD,k)
        
 Outputs: 
-* idkm (index of cluster for each reaction)
+* ind_ts_level (index of cluster for each reaction - clustering ts level)
+* ind_ts_profile (index of cluster for each reaction - clustering ts trend)
