@@ -13,7 +13,7 @@ Inputs (for each time point):
 
 Implementation (for each time point):
 
-          [reaction_expression parsedGPR]= mapExpressionToReactions(model, gene_expression);
+          reaction_expression= mapExpressionToReactions(model, gene_expression);
 
 Outputs (for each time point):
 * reaction_expression (Gene expression data mapped on the GSMM)
@@ -30,3 +30,19 @@ Inputs (for each time point):
        
 Outputs (for each time point): 
 * model_Ti (time point spesific GSMM for t(i) whose upper and lower bounds were manipulated via fE-Flux) 
+
+
+STEP 3: Sampling
+
+Dependencies:
+* COBRA Toolbox (https://github.com/opencobra/cobratoolbox)
+
+Inputs (for each time point):
+* model_Ti (time point specific GSMM)
+
+Implementation 
+
+        [modelSampling_Ti, samples_Ti] = sampleCbModel(model_Ti,'samples_Ti','ACHR', 'modelSampling_Ti');
+       
+Outputs (for each time point): 
+* samples_Ti (flux distribution of sampled 2000 points (default) for each reaction) 
